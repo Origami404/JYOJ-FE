@@ -87,6 +87,11 @@
             render: (h, params) => {
               return h('span', utils.getACRate(params.row.accepted_number, params.row.submission_number))
             }
+          },
+          {
+            title: 'Real Name',
+            align: 'center',
+            key: 'real_name'
           }
         ],
         options: {

@@ -119,6 +119,13 @@
             render: (h, params) => {
               return h('span', this.parseTotalTime(params.row.total_time))
             }
+          },
+          {
+            title: 'RealName',
+            align: 'center',
+            render: (h, params) => {
+              return h('span', {}, params.row.user.real_name)
+            }
           }
         ],
         dataRank: [],

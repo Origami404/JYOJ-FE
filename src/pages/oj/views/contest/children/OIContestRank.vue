@@ -100,6 +100,13 @@
                 }
               }, params.row.total_score)
             }
+          },
+          {
+            title: 'Real Name',
+            align: 'center',
+            render: (h, params) => {
+              return h('span', {}, params.row.user.real_name)
+            }
           }
         ],
         dataRank: [],
