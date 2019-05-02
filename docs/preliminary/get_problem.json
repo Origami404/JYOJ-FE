@@ -1,0 +1,9 @@
+{
+  "answer": {
+    "choice": [1, 2],
+    "mulchoice": [[1, 2], [2, 4]],
+    "gap_filling": ["xxx", "aaa"],
+    "program_result": ["xxx", "aaa"],
+    "program_competion": [["xxx", "sss"], ["xxx", "sfaf"]]
+  }
+}
