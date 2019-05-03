@@ -19,7 +19,7 @@ method: GET
         "mark": 2
       }
     ],
-    "mulchioce": [
+    "multichioce": [
       {
         "stem": "题面",
         "option": ["选项内容"],
@@ -29,7 +29,7 @@ method: GET
     "program_result": [
       {
         "code": "#include <cstdio>\nusing namespace std;\nint main() {\n\tprintf(\"Hello, World!\");\n\treturn 0;\n}\n",
-        "questions": ["题面"],
+        "input": ["输入"],
         "mark": 5
       }
     ],
@@ -50,13 +50,13 @@ method: GET
 ```
 
 `problem`中有四个数组, 含义如下:
-|JSON 名称|含义|
-|:-----:|:--:|
-|choice|单选题|
-|mulchoice|多选题|
-|gap_filling|填空|
-|program_result|看程序写输出|
-|program_competion|补全程序|
+| JSON 名称 | 含义 |
+| :---------------: | :----------: |
+| choice | 单选题 |
+| mulchoice | 多选题 |
+| gap_filling | 填空 |
+| program_result | 看程序写输出 |
+| program_competion | 补全程序 |
 题目顺序按数组中对象的顺序排列
 数组中对象的具体含义见键值, `mark`为分值
 选择题中`options`数组第 i 项会被渲染为 i+'A'

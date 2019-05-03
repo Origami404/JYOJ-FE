@@ -271,16 +271,16 @@ export default {
     return new Promise((resolve, reject) => {
       resolve({
         data: {
-          'exam-name': 'exam-name',
+          name: 'exam-name',
           problems: {
             choice: [
               {
                 stem: '题面',
-                options: ['选项内容'],
+                options: ['选项内容A', 'BBBB', 'CCCC'],
                 mark: 2
               }
             ],
-            mulchioce: [
+            multichoice: [
               {
                 stem: '题面',
                 options: ['选项内容'],
@@ -291,7 +291,7 @@ export default {
               {
                 code:
                   '#include <cstdio>\nusing namespace std;\nint main() {\n\tprintf("Hello, World!");\n\treturn 0;\n}\n',
-                questions: ['题面'],
+                input: ['题面'],
                 mark: 5
               }
             ],

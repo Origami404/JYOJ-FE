@@ -1,16 +1,20 @@
 <template>
-  <div id="choice">
+  <div class="multichoice">
     <p>{{ stemWithIndex }}</p>
-    <RadioGroup v-model="choosenOptionIndex" vertical class="radio-group">
-      <Radio v-for="(v, i) in options" :key="i" :label="i" class="radio">
-        {{ optionIndexToAlpha(i) + '. ' + v }}
-      </Radio>
-    </RadioGroup>
+    <CheckboxGroup v-model="choosenOptions" vertical class="checkbox-group">
+      <Checkbox
+        v-for="(v, i) in options"
+        :key="i"
+        :label="i"
+        class="checkbox"
+        >{{ optionIndexToAlpha(i) + '. ' + v }}</Checkbox
+      >
+    </CheckboxGroup>
   </div>
 </template>
 <script>
 export default {
-  name: 'Choice',
+  name: 'Multichoice',
   props: {
     index: {
       type: Number,
@@ -27,7 +31,7 @@ export default {
   },
   data() {
     return {
-      choosenOptionIndex: 0
+      choosenOptions: []
     }
   },
   computed: {
@@ -42,8 +46,9 @@ export default {
   }
 }
 </script>
+
 <style lang="less" scoped>
-.radio-group {
+.checkbox-group {
   padding-left: 7px;
 }
 </style>
