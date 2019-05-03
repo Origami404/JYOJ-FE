@@ -254,11 +254,7 @@
         <div slot="title">
           <Icon type="ios-analytics"></Icon>
           <span class="card-title">Statistic</span>
-          <Button
-            type="ghost"
-            size="small"
-            id="detail"
-            @click="graphVisible = !graphVisible"
+          <Button size="small" id="detail" @click="graphVisible = !graphVisible"
             >Details</Button
           >
         </div>
@@ -273,7 +269,7 @@
         <ECharts :options="largePie" :initOptions="largePieInitOpts"></ECharts>
       </div>
       <div slot="footer">
-        <Button type="ghost" @click="graphVisible = false">Close</Button>
+        <Button @click="graphVisible = false">Close</Button>
       </div>
     </Modal>
   </div>
