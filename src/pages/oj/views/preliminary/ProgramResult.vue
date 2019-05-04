@@ -10,6 +10,7 @@
             <span>{{ '(' + i + ') 输入' }}</span>
             <pre>{{ v }}</pre>
           </Col>
+
           <Divider type="vertical" />
           <Col span="12" class="io-col">
             <span>{{ '(' + i + ') 输出' }}</span>
