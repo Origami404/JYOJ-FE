@@ -11,7 +11,7 @@
         <span>{{ website.website_name }}</span>
       </div>
       <Menu-item name="/">
-        <Icon type="home"></Icon>
+        <Icon type="md-home"></Icon>
         {{ $t('m.Home') }}
       </Menu-item>
       <Menu-item name="/problems">
@@ -19,16 +19,16 @@
         {{ $t('m.NavProblems') }}
       </Menu-item>
       <Menu-item name="/contests">
-        <Icon type="trophy"></Icon>
+        <Icon type="md-trophy"></Icon>
         {{ $t('m.Contests') }}
       </Menu-item>
       <Menu-item name="/status">
-        <Icon type="ios-pulse-strong"></Icon>
+        <Icon type="md-stats"></Icon>
         {{ $t('m.NavStatus') }}
       </Menu-item>
       <Submenu name="rank">
         <template slot="title">
-          <Icon type="podium"></Icon>
+          <Icon type="md-podium"></Icon>
           {{ $t('m.Rank') }}
         </template>
         <Menu-item name="/acm-rank">
@@ -40,7 +40,7 @@
       </Submenu>
       <Submenu name="about">
         <template slot="title">
-          <Icon type="information-circled"></Icon>
+          <Icon type="md-help"></Icon>
           {{ $t('m.About') }}
         </template>
         <Menu-item name="/about">
@@ -52,16 +52,11 @@
       </Submenu>
       <template v-if="!isAuthenticated">
         <div class="btn-menu">
-          <Button
-             
-            ref="loginBtn"
-            shape="circle"
-            @click="handleBtnClick('login')"
+          <Button ref="loginBtn" shape="circle" @click="handleBtnClick('login')"
             >{{ $t('m.Login') }}
           </Button>
           <Button
             v-if="website.allow_register"
-             
             shape="circle"
             @click="handleBtnClick('register')"
             style="margin-left: 5px;"

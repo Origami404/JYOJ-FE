@@ -9,7 +9,7 @@
           YOU&nbsp;&nbsp;LOOK&nbsp;&nbsp;LOST
         </p>
         <div class="error404-btn-con">
-          <Button @click="goHome" size="large" style="width: 200px;"  
+          <Button @click="goHome" size="large" style="width: 200px;"
             >Go Home</Button
           >
           <Button

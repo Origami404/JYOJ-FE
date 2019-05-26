@@ -1,16 +1,16 @@
 import utils from '@/utils/utils'
 
 export default {
-  data () {
+  data() {
     return {
       statusColumn: false
     }
   },
   methods: {
-    getACRate (ACCount, TotalCount) {
+    getACRate(ACCount, TotalCount) {
       return utils.getACRate(ACCount, TotalCount)
     },
-    addStatusColumn (tableColumns, dataProblems) {
+    addStatusColumn(tableColumns, dataProblems) {
       // 已添加过直接返回
       if (this.statusColumn) return
       // 只在有做题记录时才添加column
@@ -32,7 +32,7 @@ export default {
           }
           return h('Icon', {
             props: {
-              type: status === 0 ? 'checkmark-round' : 'minus-round',
+              type: status === 0 ? 'md-checkmark' : 'md-minus',
               size: '16'
             },
             style: {

@@ -74,7 +74,7 @@
       >
         {{ $t('m.UserRegister') }}
       </Button>
-      <Button   @click="switchMode('login')" class="btn" long>
+      <Button @click="switchMode('login')" class="btn" long>
         {{ $t('m.Already_Registed') }}
       </Button>
     </div>

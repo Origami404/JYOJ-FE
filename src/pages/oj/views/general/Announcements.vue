@@ -11,9 +11,7 @@
         :loading="btnLoading"
         >{{ $t('m.Refresh') }}</Button
       >
-      <Button v-else   icon="ios-undo" @click="goBack">{{
-        $t('m.Back')
-      }}</Button>
+      <Button v-else icon="ios-undo" @click="goBack">{{ $t('m.Back') }}</Button>
     </div>
 
     <transition-group name="announcement-animate" mode="in-out">

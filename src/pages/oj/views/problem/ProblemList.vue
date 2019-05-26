@@ -11,7 +11,7 @@
                   >{{
                     query.difficulty === '' ? 'Difficulty' : query.difficulty
                   }}
-                  <Icon type="arrow-down-b"></Icon>
+                  <Icon type="md-arrow-down-b"></Icon>
                 </span>
                 <Dropdown-menu slot="list">
                   <Dropdown-item name="">All</Dropdown-item>
@@ -33,12 +33,12 @@
                 @on-enter="filterByKeyword"
                 @on-click="filterByKeyword"
                 placeholder="keyword"
-                icon="ios-search-strong"
+                icon="md-search"
               />
             </li>
             <li>
               <Button type="info" @click="onReset">
-                <Icon type="refresh"></Icon>
+                <Icon type="md-refresh" size="15"></Icon>
                 Reset
               </Button>
             </li>
@@ -67,7 +67,6 @@
           v-for="tag in tagList"
           :key="tag.name"
           @click="filterByTag(tag.name)"
-           
           :disabled="query.tag === tag.name"
           shape="circle"
           class="tag-btn"
@@ -75,7 +74,7 @@
         </Button>
 
         <Button long id="pick-one" @click="pickone">
-          <Icon type="shuffle"></Icon>
+          <Icon type="md-shuffle"></Icon>
           Pick one
         </Button>
       </Panel>
@@ -163,9 +162,9 @@ export default {
           title: 'Level',
           render: (h, params) => {
             let t = params.row.difficulty
-            let color = 'blue'
-            if (t === 'Low') color = 'green'
-            else if (t === 'High') color = 'yellow'
+            let color = 'primary' // for iview3
+            if (t === 'Low') color = 'success'
+            else if (t === 'High') color = 'warning'
             return h(
               'Tag',
               {
