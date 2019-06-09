@@ -51,6 +51,18 @@
             class="question"
           ></ProgramResult>
         </div>
+
+        <div class="program-competion">
+          <p class="big-problem-title">五. 补全程序</p>
+          <ProgramCompetion
+            v-for="(v, i) in problems.program_competion"
+            :key="'program-competion-' + i"
+            :index="i + programCompetionIndexOffset"
+            :code="v.code"
+            ref="programCompetion"
+            class="question"
+          ></ProgramCompetion>
+        </div>
       </div>
 
       <Button @click="sublime"> Sublime </Button>
@@ -64,13 +76,15 @@ import Choice from './Choice'
 import Multichoice from './Multichoice'
 import GapFilling from './GapFilling'
 import ProgramResult from './ProgramResult'
+import ProgramCompetion from './ProgramCompetion'
 export default {
   name: 'Exam',
   components: {
     Choice,
     Multichoice,
     GapFilling,
-    ProgramResult
+    ProgramResult,
+    ProgramCompetion
   },
   data() {
     return {
@@ -107,6 +121,11 @@ export default {
     programResultIndexOffset() {
       console.log(this.problems.program_result)
       return this.gapFillingIndexOffset + this.problems.gap_filling.length
+    },
+    programCompetionIndexOffset() {
+      return (
+        this.programResultIndexOffset + this.problems.program_competion.length
+      )
     }
   },
   methods: {

@@ -35,7 +35,7 @@
                     v-clipboard:success="onCopy"
                     v-clipboard:error="onCopyError"
                   >
-                    <Icon type="clipboard"></Icon>
+                    <Icon type="md-clipboard"></Icon>
                   </a>
                 </p>
                 <pre>{{ sample.input }}</pre>
@@ -164,7 +164,7 @@
               params: { contestID: contestID }
             }"
           >
-            <Icon type="chatbubble-working"></Icon>
+            <Icon type="md-chatbubble"></Icon>
             Announcements
           </VerticalMenu-item>
         </template>
@@ -173,7 +173,7 @@
           v-if="!this.contestID || OIContestRealTimePermission"
           :route="submissionRoute"
         >
-          <Icon type="navicon-round"></Icon>
+          <Icon type="md-navicon-round"></Icon>
           Submissions
         </VerticalMenu-item>
 

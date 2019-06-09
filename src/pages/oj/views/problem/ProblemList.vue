@@ -34,6 +34,8 @@
                 @on-click="filterByKeyword"
                 placeholder="keyword"
                 icon="md-search"
+                slot="suffix"
+                search
               />
             </li>
             <li>
