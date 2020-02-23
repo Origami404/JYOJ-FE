@@ -21,44 +21,44 @@ import Pagination from '@oj/components/Pagination'
 import utils from '@/utils/utils'
 import { RULE_TYPE } from '@/utils/constants'
 
-  export default {
-    name: 'acm-rank',
-    components: {
-      Pagination
-    },
-    data () {
-      return {
-        page: 1,
-        limit: 30,
-        total: 0,
-        loadingTable: false,
-        dataRank: [],
-        columns: [
-          {
-            align: 'center',
-            width: 60,
-            render: (h, params) => {
-              return h('span', {}, params.index + (this.page - 1) * this.limit + 1)
-            }
-          },
-          {
-            title: this.$i18n.t('m.User_User'),
-            align: 'center',
-            render: (h, params) => {
-              return h('a', {
-                style: {
-                  display: 'inline-block',
-                  'max-width': '200px'
-                },
-                on: {
-                  click: () => {
-                    this.$router.push({
-                      name: 'user-home',
-                      query: { username: params.row.user.username }
-                    })
-                  }
-                }
+export default {
+  name: 'acm-rank',
+  components: {
+    Pagination
+  },
+  data () {
+    return {
+      page: 1,
+      limit: 30,
+      total: 0,
+      loadingTable: false,
+      dataRank: [],
+      columns: [
+        {
+          align: 'center',
+          width: 60,
+          render: (h, params) => {
+            return h('span', {}, params.index + (this.page - 1) * this.limit + 1)
+          }
+        },
+        {
+          title: this.$i18n.t('m.User_User'),
+          align: 'center',
+          render: (h, params) => {
+            return h('a', {
+              style: {
+                display: 'inline-block',
+                'max-width': '200px'
               },
+              on: {
+                click: () => {
+                  this.$router.push({
+                    name: 'user-home',
+                    query: { username: params.row.user.username }
+                  })
+                }
+              }
+            },
               params.row.user.username
             )
           }
