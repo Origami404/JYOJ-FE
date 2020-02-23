@@ -34,7 +34,7 @@ export const m = {
   // Announcement.vue
   General_Announcement: 'Announcement',
   Announcement_Title: 'Title',
-  Announcement_Content: 'Conten',
+  Announcement_Content: 'Content',
   Announcement_visible: 'Visible',
   // Conf.vue
   SMTP_Config: 'SMTP Config',
@@ -89,6 +89,15 @@ export const m = {
   Score: 'Score',
   Hint: 'Hint',
   Source: 'Source',
+  Edit_Problem: 'Edit Problme',
+  Add_Problme: 'Add Problem',
+  High: 'High',
+  Mid: 'Mid',
+  Low: 'Low',
+  Tag: 'Tag',
+  New_Tag: 'New Tag',
+   // ProblemList.vue
+  Contest_Problem_List: 'Contest Problem List',
   // Contest.vue
   ContestTitle: 'Title',
   ContestDescription: 'Description',
@@ -106,5 +115,10 @@ export const m = {
   DashBoardJudge_Server: 'Judge Server',
   HTTPS_Status: 'HTTPS Status',
   Force_HTTPS: 'Force HTTPS',
-  CDN_HOST: 'CDN HOST'
+  CDN_HOST: 'CDN HOST',
+  // Login.vue
+  Welcome_to_Login: 'Welcome to Login',
+  GO: 'GO',
+  username: 'username',
+  password: 'password'
 }

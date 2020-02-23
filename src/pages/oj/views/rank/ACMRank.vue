@@ -1,26 +1,16 @@
 <template>
   <Row type="flex" justify="space-around">
     <Col :span="22">
-      <Panel :padding="10">
-        <div slot="title">ACM Ranklist</div>
-        <div class="echarts">
-          <ECharts :options="options" ref="chart" auto-resize></ECharts>
-        </div>
-      </Panel>
-      <Table
-        :data="dataRank"
-        :columns="columns"
-        :loading="loadingTable"
-        size="large"
-      ></Table>
-      <Pagination
-        :total="total"
-        :page-size.sync="limit"
-        :current.sync="page"
-        @on-change="getRankData"
-        show-sizer
-        @on-page-size-change="getRankData(1)"
-      ></Pagination>
+    <Panel :padding="10">
+      <div slot="title">{{$t('m.ACM_Ranklist')}}</div>
+      <div class="echarts">
+        <ECharts :options="options" ref="chart" auto-resize></ECharts>
+      </div>
+    </Panel>
+    <Table :data="dataRank" :columns="columns" :loading="loadingTable" size="large"></Table>
+    <Pagination :total="total" :page-size.sync="limit" :current.sync="page"
+                @on-change="getRankData" show-sizer
+                @on-page-size-change="getRankData(1)"></Pagination>
     </Col>
   </Row>
 </template>
@@ -31,37 +21,31 @@ import Pagination from '@oj/components/Pagination'
 import utils from '@/utils/utils'
 import { RULE_TYPE } from '@/utils/constants'
 
-export default {
-  name: 'acm-rank',
-  components: {
-    Pagination
-  },
-  data() {
-    return {
-      page: 1,
-      limit: 30,
-      total: 0,
-      loadingTable: false,
-      dataRank: [],
-      columns: [
-        {
-          align: 'center',
-          width: 60,
-          render: (h, params) => {
-            return h(
-              'span',
-              {},
-              params.index + (this.page - 1) * this.limit + 1
-            )
-          }
-        },
-        {
-          title: 'user',
-          align: 'center',
-          render: (h, params) => {
-            return h(
-              'a',
-              {
+  export default {
+    name: 'acm-rank',
+    components: {
+      Pagination
+    },
+    data () {
+      return {
+        page: 1,
+        limit: 30,
+        total: 0,
+        loadingTable: false,
+        dataRank: [],
+        columns: [
+          {
+            align: 'center',
+            width: 60,
+            render: (h, params) => {
+              return h('span', {}, params.index + (this.page - 1) * this.limit + 1)
+            }
+          },
+          {
+            title: this.$i18n.t('m.User_User'),
+            align: 'center',
+            render: (h, params) => {
+              return h('a', {
                 style: {
                   display: 'inline-block',
                   'max-width': '200px'
@@ -131,42 +115,92 @@ export default {
         calculable: true,
         xAxis: [
           {
-            type: 'category',
-            data: ['root'],
-            axisLabel: {
-              interval: 0,
-              showMinLabel: true,
-              showMaxLabel: true,
-              align: 'center',
-              formatter: (value, index) => {
-                return utils.breakLongWords(value, 10)
-              }
-            }
-          }
-        ],
-        yAxis: [
-          {
-            type: 'value'
-          }
-        ],
-        series: [
-          {
-            name: 'AC',
-            type: 'bar',
-            data: [0],
-            markPoint: {
-              data: [{ type: 'max', name: 'max' }]
-            }
+            title: this.$i18n.t('m.mood'),
+            align: 'center',
+            key: 'mood'
           },
           {
-            name: 'Total',
-            type: 'bar',
-            data: [0],
-            markPoint: {
-              data: [{ type: 'max', name: 'max' }]
+            title: this.$i18n.t('m.AC'),
+            align: 'center',
+            key: 'accepted_number'
+          },
+          {
+            title: this.$i18n.t('m.Total'),
+            align: 'center',
+            key: 'submission_number'
+          },
+          {
+            title: this.$i18n.t('m.Rating'),
+            align: 'center',
+            render: (h, params) => {
+              return h('span', utils.getACRate(params.row.accepted_number, params.row.submission_number))
             }
           }
-        ]
+        ],
+        options: {
+          tooltip: {
+            trigger: 'axis'
+          },
+          legend: {
+            data: [this.$i18n.t('m.AC'), this.$i18n.t('m.Total')]
+          },
+          grid: {
+            x: '3%',
+            x2: '3%'
+          },
+          toolbox: {
+            show: true,
+            feature: {
+              dataView: {show: true, readOnly: true},
+              magicType: {show: true, type: ['line', 'bar', 'stack']},
+              saveAsImage: {show: true}
+            },
+            right: '10%'
+          },
+          calculable: true,
+          xAxis: [
+            {
+              type: 'category',
+              data: ['root'],
+              axisLabel: {
+                interval: 0,
+                showMinLabel: true,
+                showMaxLabel: true,
+                align: 'center',
+                formatter: (value, index) => {
+                  return utils.breakLongWords(value, 10)
+                }
+              }
+            }
+          ],
+          yAxis: [
+            {
+              type: 'value'
+            }
+          ],
+          series: [
+            {
+              name: this.$i18n.t('m.AC'),
+              type: 'bar',
+              data: [0],
+              markPoint: {
+                data: [
+                  {type: 'max', name: 'max'}
+                ]
+              }
+            },
+            {
+              name: this.$i18n.t('m.Total'),
+              type: 'bar',
+              data: [0],
+              markPoint: {
+                data: [
+                  {type: 'max', name: 'max'}
+                ]
+              }
+            }
+          ]
+        }
       }
     }
   },
